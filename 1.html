@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raj Tour Travels — India, Frame by Frame</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. VISUAL IDENTITY & SYSTEM VARIABLES
+       ========================================================================== */
+    :root {
+      --color-green: #10261A;
+      --color-ivory: #F7F3EA;
+      --color-terracotta: #B95738;
+      --color-gold: #B99A62;
+      --color-charcoal: #22251F;
+      --color-border-light: rgba(185, 154, 98, 0.25);
+      --color-border-dark: rgba(247, 243, 234, 0.15);
+
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --margin-desktop: 80px;
+      --spacing-section: 140px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-ivory);
+      color: var(--color-charcoal);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    /* Typography Helpers */
+    .font-serif { font-family: var(--font-serif); }
+    
+    .label-uppercase {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 500;
+      color: var(--color-gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: var(--color-gold);
+      color: var(--color-green);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid var(--color-gold);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--color-gold);
+    }
+
+    .btn-secondary-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 0.25rem;
+    }
+
+    /* Section Padding */
+    .section-pad {
+      padding-top: var(--spacing-section);
+      padding-bottom: var(--spacing-section);
+      padding-left: var(--margin-desktop);
+      padding-right: var(--margin-desktop);
+    }
+
+    /* Thin Divider */
+    .divider {
+      border: none;
+      border-bottom: 1px solid var(--color-border-light);
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       2. NAVIGATION
+       ========================================================================== */
+    .nav-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 2.5rem var(--margin-desktop);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--color-ivory);
+    }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .nav-cta {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid var(--color-ivory);
+      padding: 0.75rem 1.5rem;
+    }
+
+    /* ==========================================================================
+       3. HERO SECTION
+       ========================================================================== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 750px;
+      max-height: 850px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--margin-desktop);
+      color: var(--color-ivory);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16, 38, 26, 0.4) 0%, rgba(16, 38, 26, 0.75) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--color-gold);
+    }
+
+    .hero-title {
+      font-size: 5rem;
+      line-height: 1.05;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.5;
+      max-width: 550px;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .hero-scroll {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: flex-between;
+      align-items: center;
+      border-top: 1px solid var(--color-border-dark);
+      padding-top: 1.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    /* ==========================================================================
+       4. INTRODUCTION
+       ========================================================================== */
+    .intro {
+      background-color: var(--color-ivory);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .intro-title {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 300;
+      color: var(--color-green);
+    }
+
+    .intro-body p {
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      color: var(--color-charcoal);
+    }
+
+    .intro-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      border-top: 1px solid var(--color-border-light);
+      padding-top: 2rem;
+    }
+
+    .stat-item {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      color: var(--color-terracotta);
+    }
+
+    /* ==========================================================================
+       5 & 6. ASYMMETRICAL DESTINATION STORIES
+       ========================================================================== */
+    .story-split {
+      display: flex;
+      align-items: center;
+      gap: 6rem;
+      padding: var(--spacing-section) var(--margin-desktop);
+    }
+
+    .story-split.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .story-img-container {
+      width: 60%;
+      height: 650px;
+    }
+
+    .story-img-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .story-text-container {
+      width: 40%;
+    }
+
+    .story-headline {
+      font-size: 3rem;
+      line-height: 1.15;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      color: var(--color-green);
+    }
+
+    .story-description {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .story-caption {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 3rem;
+      color: var(--color-gold);
+    }
+
+    /* ==========================================================================
+       7, 8 & 9. FULL & WIDE CINEMATIC SECTIONS
+       ========================================================================== */
+    .story-cinematic {
+      position: relative;
+      height: 80vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      padding: 0 var(--margin-desktop);
+      color: var(--color-ivory);
+    }
+
+    .story-cinematic-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .story-cinematic-bg img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .story-cinematic-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 38, 26, 0.45);
+      z-index: 2;
+    }
+
+    .story-cinematic-content {
+      position: relative;
+      z-index: 3;
+      max-width: 600px;
+    }
+
+    .story-cinematic-headline {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    /* Two-Column Wide Layout (Kerala & Himalayas) */
+    .story-wide-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding: var(--spacing-section) var(--margin-desktop);
+    }
+
+    .story-card-wide {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .story-card-wide .img-box {
+      height: 450px;
+      margin-bottom: 2rem;
+    }
+
+    .story-card-wide .img-box img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ==========================================================================
+       10. JOURNEYS SECTION
+       ========================================================================== */
+    .journeys-section {
+      background-color: var(--color-ivory);
+    }
+
+    .section-title {
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--color-green);
+      margin-bottom: 4rem;
+    }
+
+    .journey-row {
+      display: grid;
+      grid-template-columns: 240px 80px 1.5fr 2fr 50px;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .journey-row:first-of-type {
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .journey-thumb {
+      height: 140px;
+    }
+
+    .journey-thumb img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .journey-num {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+    }
+
+    .journey-info h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-family: var(--font-serif);
+      color: var(--color-green);
+      margin-bottom: 0.25rem;
+    }
+
+    .journey-route {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+    }
+
+    .journey-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--color-charcoal);
+    }
+
+    .journey-arrow {
+      font-size: 1.5rem;
+      color: var(--color-green);
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       11. BESPOKE JOURNEY (DARK FOREST GREEN)
+       ========================================================================== */
+    .bespoke-section {
+      background-color: var(--color-green);
+      color: var(--color-ivory);
+      position: relative;
+    }
+
+    .bespoke-header {
+      max-width: 650px;
+      margin-bottom: 5rem;
+    }
+
+    .bespoke-header h2 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .bespoke-header p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.85;
+    }
+
+    .bespoke-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      border-top: 1px solid var(--color-border-dark);
+      padding-top: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .step-num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+    }
+
+    .step-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       12. WHY RAJ TOUR TRAVELS
+       ========================================================================== */
+    .why-us {
+      background-color: var(--color-ivory);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .why-item {
+      border-top: 1px solid var(--color-border-light);
+      padding-top: 2rem;
+    }
+
+    .why-item h4 {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-green);
+      margin-bottom: 1rem;
+    }
+
+    .why-item p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       13. TRAVEL STORIES / JOURNAL
+       ========================================================================== */
+    .journal {
+      background-color: var(--color-ivory);
+    }
+
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .journal-card img {
+      width: 100%;
+      height: 380px;
+      margin-bottom: 1.5rem;
+    }
+
+    .journal-card h3 {
+      font-size: 1.35rem;
+      font-weight: 400;
+      font-family: var(--font-serif);
+      color: var(--color-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .journal-card p {
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    /* ==========================================================================
+       14. TESTIMONIALS
+       ========================================================================== */
+    .testimonials {
+      background-color: var(--color-ivory);
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .test-quote {
+      font-size: 4rem;
+      font-family: var(--font-serif);
+      color: var(--color-gold);
+      line-height: 1;
+      margin-bottom: -1rem;
+    }
+
+    .test-body {
+      font-size: 1.25rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .test-meta {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+    }
+
+    /* ==========================================================================
+       15. FINAL CTA
+       ========================================================================== */
+    .final-cta {
+      position: relative;
+      background-color: var(--color-green);
+      color: var(--color-ivory);
+      text-align: center;
+      padding: 160px var(--margin-desktop);
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .final-cta h2 {
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .final-cta p {
+      font-size: 1.15rem;
+      font-weight: 300;
+      margin-bottom: 3rem;
+      opacity: 0.85;
+    }
+
+    .final-cta-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    /* ==========================================================================
+       16. FOOTER
+       ========================================================================== */
+    .footer {
+      background-color: #0A1810;
+      color: var(--color-ivory);
+      padding: 100px var(--margin-desktop) 40px;
+      border-top: 1px solid var(--color-border-dark);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 80px;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      font-family: var(--font-serif);
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      opacity: 0.6;
+      max-width: 300px;
+    }
+
+    .footer-nav ul {
+      list-style: none;
+    }
+
+    .footer-nav li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-nav a {
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+    }
+
+    .footer-contact p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--color-border-dark);
+      padding-top: 2rem;
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE ADAPTABILITY
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      :root {
+        --margin-desktop: 40px;
+        --spacing-section: 100px;
+      }
+      .hero-title { font-size: 3.5rem; }
+      .intro, .story-wide-grid, .test-grid { grid-template-columns: 1fr; }
+      .story-split, .story-split.reverse { flex-direction: column; gap: 3rem; }
+      .story-img-container, .story-text-container { width: 100%; }
+      .journey-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .journey-thumb { display: none; }
+      .bespoke-steps, .why-grid, .journal-grid { grid-template-columns: 1fr 1fr; }
+      .footer-main { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav-header">
+    <div class="nav-logo">Raj Tour Travels</div>
+    <ul class="nav-links">
+      <li><a href="#journeys">Journeys</a></li>
+      <li><a href="#destinations">Destinations</a></li>
+      <li><a href="#journal">India Stories</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Plan Your Journey</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2000&q=85" alt="Taj Mahal at sunrise">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Raj Tour Travels · Est. 1995</span>
+      <h1 class="hero-title font-serif">India,<br>in a thousand<br>stories.</h1>
+      <p class="hero-subtitle">Tailor-made journeys through the places, people, and traditions that make India unforgettable.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Plan Your Journey</a>
+        <a href="#destinations" class="btn-secondary-link" style="color: var(--color-ivory);">Explore India →</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll to explore</span>
+      <span>↓</span>
+    </div>
+  </header>
+
+  <section class="intro section-pad">
+    <div>
+      <span class="label-uppercase">Travel With Purpose</span>
+      <h2 class="intro-title font-serif">See India beyond<br>the postcard.</h2>
+    </div>
+    <div class="intro-body">
+      <p>From the iconic Taj Mahal to quiet Himalayan villages, Raj Tour Travels creates journeys shaped around how you want to experience India.</p>
+      <div class="intro-stats">
+        <div class="stat-item">Est. 1995<br>India Specialists</div>
+        <div class="stat-item">Tailor-Made<br>Private Journeys</div>
+        <div class="stat-item">Local<br>Expertise</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="story-split" id="destinations">
+    <div class="story-img-container">
+      <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=85" alt="Rajasthan Palace Courtyard">
+    </div>
+    <div class="story-text-container">
+      <span class="label-uppercase">01 · Rajasthan</span>
+      <h2 class="story-headline font-serif">Where every wall has a story.</h2>
+      <p class="story-description">Discover royal forts, historic cities, colorful markets, and the vast landscapes of the Thar.</p>
+      <a href="#" class="btn-secondary-link" style="color: var(--color-green);">Discover Rajasthan →</a>
+      <div class="story-caption">Jaipur · Jodhpur · Udaipur</div>
+    </div>
+  </section>
+
+  <section class="story-split reverse" style="padding-top: 0;">
+    <div class="story-img-container">
+      <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=85" alt="Taj Mahal Agra">
+    </div>
+    <div class="story-text-container">
+      <span class="label-uppercase">02 · Agra & The Golden Triangle</span>
+      <h2 class="story-headline font-serif">India's timeless masterpiece.</h2>
+      <p class="story-description">Experience the Taj Mahal alongside the historic cities and cultural treasures of India's Golden Triangle.</p>
+      <a href="#" class="btn-secondary-link" style="color: var(--color-green);">Explore The Golden Triangle →</a>
+    </div>
+  </section>
+
+  <section class="story-cinematic">
+    <div class="story-cinematic-bg">
+      <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=2000&q=85" alt="Varanasi Ganges">
+    </div>
+    <div class="story-cinematic-overlay"></div>
+    <div class="story-cinematic-content">
+      <span class="label-uppercase">03 · Varanasi</span>
+      <h2 class="story-cinematic-headline font-serif">Where the river holds centuries.</h2>
+      <p style="font-weight: 300; margin-bottom: 2rem; opacity: 0.9;">Witness the spiritual rhythm of the Ganges, ancient ghats, and unforgettable evening rituals.</p>
+      <a href="#" class="btn-secondary-link" style="color: var(--color-ivory);">Discover Varanasi →</a>
+    </div>
+  </section>
+
+  <section class="story-wide-grid">
+    <div class="story-card-wide">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=85" alt="Kerala Backwaters">
+      </div>
+      <span class="label-uppercase">04 · Kerala</span>
+      <h3 class="font-serif" style="font-size: 2.25rem; font-weight: 300; margin-bottom: 1rem; color: var(--color-green);">Slow down. Let India breathe.</h3>
+      <p style="font-weight: 300; margin-bottom: 1.5rem;">Cruise peaceful backwaters, explore lush landscapes, and experience the quieter side of southern India.</p>
+      <div><a href="#" class="btn-secondary-link" style="color: var(--color-green);">Discover Kerala →</a></div>
+    </div>
+
+    <div class="story-card-wide">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1000&q=85" alt="Himalayas India">
+      </div>
+      <span class="label-uppercase">05 · Himalayas</span>
+      <h3 class="font-serif" style="font-size: 2.25rem; font-weight: 300; margin-bottom: 1rem; color: var(--color-green);">Closer to the quiet.</h3>
+      <p style="font-weight: 300; margin-bottom: 1.5rem;">Explore mountain landscapes, peaceful communities, and journeys shaped around your pace.</p>
+      <div><a href="#" class="btn-secondary-link" style="color: var(--color-green);">Explore The Himalayas →</a></div>
+    </div>
+  </section>
+
+  <section class="journeys-section section-pad" id="journeys">
+    <span class="label-uppercase">Curated Itineraries</span>
+    <h2 class="section-title font-serif">Journeys worth remembering.</h2>
+
+    <div class="journey-row">
+      <div class="journey-thumb"><img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=500&q=80" alt="Delhi Heritage"></div>
+      <div class="journey-num">01</div>
+      <div class="journey-info">
+        <h3>The Golden Triangle</h3>
+        <span class="journey-route">Delhi · Agra · Jaipur</span>
+      </div>
+      <div class="journey-desc">A classic introduction to India's architectural heritage, ancient monuments, and vibrant capital streets.</div>
+      <div class="journey-arrow">→</div>
+    </div>
+
+    <div class="journey-row">
+      <div class="journey-thumb"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=500&q=80" alt="Royal Rajasthan"></div>
+      <div class="journey-num">02</div>
+      <div class="journey-info">
+        <h3>Royal Rajasthan</h3>
+        <span class="journey-route">Jaipur · Jodhpur · Udaipur</span>
+      </div>
+      <div class="journey-desc">Fortresses, floating palaces, and desert landscapes tracing the legacy of India’s legendary rulers.</div>
+      <div class="journey-arrow">→</div>
+    </div>
+
+    <div class="journey-row">
+      <div class="journey-thumb"><img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=500&q=80" alt="Southern India"></div>
+      <div class="journey-num">03</div>
+      <div class="journey-info">
+        <h3>Southern India</h3>
+        <span class="journey-route">Kerala · Backwaters · Tea Country</span>
+      </div>
+      <div class="journey-desc">A slower journey through India's lush south, verdant spice plantations, and serene waterways.</div>
+      <div class="journey-arrow">→</div>
+    </div>
+  </section>
+
+  <section class="bespoke-section section-pad">
+    <div class="bespoke-header">
+      <span class="label-uppercase">Tailor-Made Experience</span>
+      <h2 class="font-serif">No two journeys should be the same.</h2>
+      <p>Tell us what you want to see, how you want to travel, and what matters most to you. We'll shape the journey around you.</p>
+    </div>
+
+    <div class="bespoke-steps">
+      <div>
+        <div class="step-num">01</div>
+        <div class="step-title">Tell Us Your Vision</div>
+      </div>
+      <div>
+        <div class="step-num">02</div>
+        <div class="step-title">We Design Your Journey</div>
+      </div>
+      <div>
+        <div class="step-num">03</div>
+        <div class="step-title">You Experience India</div>
+      </div>
+    </div>
+
+    <a href="#contact" class="btn-primary">Start Planning</a>
+  </section>
+
+  <section class="why-us section-pad" id="about">
+    <span class="label-uppercase">Our Promise</span>
+    <h2 class="section-title font-serif">India is our home ground.</h2>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <h4>Tailor-Made</h4>
+        <p>Journeys shaped entirely around your personal interests, schedule, and preferred pace.</p>
+      </div>
+      <div class="why-item">
+        <h4>Private Travel</h4>
+        <p>Comfortable private transportation and personalized local experiences from start to finish.</p>
+      </div>
+      <div class="why-item">
+        <h4>Local Knowledge</h4>
+        <p>Expert local guides and deep regional expertise cultivated over nearly three decades.</p>
+      </div>
+      <div class="why-item">
+        <h4>Personal Support</h4>
+        <p>Dedicated assistance throughout your entire journey across India.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="journal section-pad" id="journal">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem;">
+      <div>
+        <span class="label-uppercase">Travel Journal</span>
+        <h2 class="font-serif" style="font-size: 3.5rem; font-weight: 300; color: var(--color-green);">From the road.</h2>
+      </div>
+      <a href="#" class="btn-secondary-link" style="color: var(--color-green);">View All Stories →</a>
+    </div>
+
+    <div class="journal-grid">
+      <article class="journal-card">
+        <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80" alt="Taj Mahal at Dawn">
+        <span class="label-uppercase" style="margin-bottom: 0.5rem;">Agra</span>
+        <h3>The Taj Mahal at Dawn</h3>
+        <p>Why sunrise changes the way you see Agra's classic monument.</p>
+      </article>
+
+      <article class="journal-card">
+        <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=600&q=80" alt="Jodhpur Blue City">
+        <span class="label-uppercase" style="margin-bottom: 0.5rem;">Jodhpur</span>
+        <h3>A Morning in the Blue City</h3>
+        <p>Discovering Jodhpur's quiet alleyways before the streets awaken.</p>
+      </article>
+
+      <article class="journal-card">
+        <img src="https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=600&q=80" alt="Life along the Ganges">
+        <span class="label-uppercase" style="margin-bottom: 0.5rem;">Varanasi</span>
+        <h3>Life Along the Ganges</h3>
+        <p>A closer look at Varanasi's timeless spiritual rhythm.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="testimonials section-pad">
+    <span class="label-uppercase">Traveler Reflections</span>
+    <h2 class="section-title font-serif">Stories from our travelers.</h2>
+
+    <div class="test-grid">
+      <div>
+        <div class="test-quote">“</div>
+        <p class="test-body">Raj Tour Travels organized an extraordinary journey through Rajasthan for our family. Every detail, from private drivers to local heritage guides, was seamless and intentional.</p>
+        <div class="test-meta">Private Rajasthan Journey</div>
+      </div>
+
+      <div>
+        <div class="test-quote">“</div>
+        <p class="test-body">To see Varanasi and the Golden Triangle with specialists who truly know the culture made all the difference. It felt less like a tour and more like an intimate discovery.</p>
+        <div class="test-meta">Golden Triangle & Varanasi Journey</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="contact">
+    <div class="final-cta-content">
+      <span class="label-uppercase">Begin Your Journey</span>
+      <h2 class="font-serif">Your India story<br>starts here.</h2>
+      <p>Let's create a journey you'll remember long after you've returned home.</p>
+      <div class="final-cta-actions">
+        <a href="mailto:info@rajtourtravels.com" class="btn-primary">Plan My Trip</a>
+        <a href="tel:+919756686666" class="btn-secondary-link" style="color: var(--color-ivory);">Talk to Our Specialists →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <h3>RAJ TOUR TRAVELS</h3>
+        <p>Tailor-made journeys across India since 1995. Built on local knowledge and personal travel care.</p>
+      </div>
+
+      <div class="footer-nav">
+        <ul>
+          <li><a href="#journeys">Journeys</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#journal">India Stories</a></li>
+          <li><a href="#contact">Plan My Trip</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <p>+91 975 668 6666</p>
+        <p>info@rajtourtravels.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Raj Tour Travels. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
